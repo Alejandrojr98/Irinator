@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Resultado</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-$END$
+<header>
+  IRINATOR
+</header>
+
+<div class="main-container">
+  <div class="left-box">
+    <img src="img/irinaneutra.png" alt="Genio">
+  </div>
+  <div>
+    <h2>El animal es:</h2>
+
+    <p th:text="${animales}"></p>
+<!--    <img th:src="@{${animales.imagen.datos}}" alt="Imagen" width="150"/>-->
+  </div>
+</div>
 </body>
 </html>

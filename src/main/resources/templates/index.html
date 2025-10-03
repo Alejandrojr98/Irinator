@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>IRINATOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
 </head>
 <body>
-$END$
+
+<header>
+    IRINATOR
+</header>
+
+<div class="main-container">
+
+    <div class="left-box">
+        <img src="img/irinaneutra.png" alt="Genio">
+    </div>
+    <p class="welcome-message">
+        🔮 Soy Irinator, el genio que todo lo adivina... si te atreves puedes jugar conmigo.
+    </p>
+
+    <!-- 📌 Contenedor Derecho: Texto + Botones -->
+    <div class="right-box">
+
+        <h2>Seleccione una opción para empezar a jugar</h2>
+        <div class="button-container">
+            <a th:href="@{/personas}">
+                <button type="button">Personas</button>
+            </a>
+            <a th:href="@{/animales}">
+                <button type="button">Animales</button>
+            </a>
+            <a th:href="@{/pruebaAnimales}">
+                <button type="button">Animales Prueba</button>
+            </a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

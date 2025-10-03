@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Prueba</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-$END$
+<header>
+    IRINATOR
+</header>
+
+<div class="main-container">
+    <div class="left-box">
+        <img src="img/irinaneutra.png" alt="Genio">
+    </div>
+    <h2 th:text="${preguntas.pregunta}"></h2>
+    <form th:action="@{/filtrar}" method="post">
+        <input type="hidden" name="i" th:value="${i}" />
+        <div class="answers">
+            <button type="submit" name="respuesta" value="true">Verdadero</button>
+            <button type="submit" name="respuesta" value="false">Falso</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

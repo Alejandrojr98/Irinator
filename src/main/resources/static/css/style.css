@@ -1,0 +1,307 @@
+/* ===== Reset básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 38px;
+    font-weight: 700;
+    background:
+            linear-gradient(rgba(15, 10, 40, 0.85), rgba(25, 15, 60, 0.9)),
+            url('../img/cielo.jpg') center/cover no-repeat fixed;
+    color: #f5f5f5;
+}
+
+/* ===== Header ===== */
+header {
+
+    background: rgba(30, 20, 60, 0.85);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 34px;
+    font-weight: bold;
+    color: #f1d96b; /* toque dorado */
+    text-shadow: 0 0 10px rgba(241, 217, 107, 0.7);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    letter-spacing: 2px;
+}
+
+/* ===== Contenedor principal ===== */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: calc(100vh - 120px);
+    position: relative;
+}
+
+/* ===== Columna izquierda ===== */
+.left-box{ flex: 0 0 clamp(320px, 38vw, 520px); }      /* ancho de la columna */
+.left-box img{
+    width: 100%;
+    max-width: clamp(320px, 38vw, 520px);                /* más grande y responsive */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(241, 217, 107, 0.7));
+    transition: transform .4s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+
+/* ===== Animación flotante ===== */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===== Columna derecha ===== */
+.right-box {
+    flex: 0 0 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(40, 20, 70, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    padding: 45px 35px;
+    border: 2px solid rgba(241, 217, 107, 0.3);
+}
+
+.right-box h2 {
+    font-size: 22px;
+    text-align: center;
+    color: #f1d96b;
+    margin-bottom: 30px;
+    text-shadow: 0 0 6px rgba(241, 217, 107, 0.6);
+    letter-spacing: 1px;
+}
+
+/* ===== Botones ===== */
+/* Contenedor de los botones: columna y centrados */
+.button-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;   /* centra horizontalmente */
+    gap:18px;
+    width:100%;
+}
+
+/* Si usas <a> envolviendo el botón, que sea bloque y ocupe ancho */
+.button-container a{
+    display:block;        /* antes era inline */
+    width:100%;
+    text-align:center;
+    text-decoration: none !important;
+}
+
+/* Botones centrados y con ancho fijo relativo */
+.button-container button{
+    display:block;        /* quita el flex que se aplicaba por error */
+    width:80%;
+    max-width:250px;
+    padding:14px;
+    text-align:center;
+    font-size:17px;
+    font-weight:600;
+    border:2px solid #f1d96b;
+    background:rgba(241,217,107,.15);
+    color:#f5f5f5;
+    border-radius:10px;
+    cursor:pointer;
+    transition:all .3s ease;
+    letter-spacing:.5px;
+    box-shadow:0 0 10px rgba(241,217,107,.3);
+    margin:0 auto;        /* asegura centrado del bloque */
+    text-decoration: none;
+}
+
+/* Hover SOLO para los botones de la caja */
+.button-container button:hover{
+    background:rgba(241,217,107,.35);
+    color:#f1d96b;
+    transform:scale(1.07);
+    box-shadow:0 0 25px rgba(241,217,107,.8);
+}
+
+
+/* ===== Burbujas mágicas ===== */
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    width: 30px;
+    height: 30px;
+    background: rgba(241, 217, 107, 0.2);
+    border-radius: 50%;
+    animation: rise 15s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    left: 20%;
+    animation-duration: 18s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 22s;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(3) {
+    left: 80%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 25s;
+    animation-delay: 3s;
+}
+
+@keyframes rise {
+    0% { bottom: -50px; transform: translateX(0) scale(0.5); opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { bottom: 110%; transform: translateX(30px) scale(1.2); opacity: 0; }
+}
+
+/* ===== Media queries ===== */
+@media (max-width: 850px) {
+    .main-container {
+        flex-direction: column;
+        gap: 25px;
+        min-height: auto;
+    }
+
+    .left-box img {
+        max-width: 220px;
+    }
+
+    .right-box {
+        flex: 1 1 auto;
+        max-width: 95%;
+        padding: 30px 20px;
+    }
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* 👈 centra horizontalmente */
+    gap: 18px;
+    width: 100%;
+}
+
+.answers button {
+    padding: 12px;
+    width: 100%;            /* todos iguales */
+    max-width: 250px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    border: 2px solid #f1d96b;
+    background: rgba(241, 217, 107, 0.15);
+    color: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(241, 217, 107, 0.3);
+}
+
+.answers button:hover {
+    background: rgba(241, 217, 107, 0.35);
+    color: #f1d96b;
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(241, 217, 107, 0.8);
+}
+.welcome-message {
+    position: absolute;
+    top: 40px;       /* distancia desde arriba */
+    right: 50px;     /* distancia desde la derecha */
+    font-size: 32px; /* ⬅️ más grande */
+    color: #f1d96b;
+    font-style: italic;
+    line-height: 1.4; /* espacio entre líneas */
+    text-align: center;
+    max-width: 400px; /* ⬅️ más ancho para que quepa en dos líneas */
+    text-shadow: 0 0 8px rgba(241, 217, 107, 0.6);
+    animation: fadeIn 2s ease-in-out;
+    word-wrap: break-word; /* permite que el texto haga salto de línea */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.right-box h2,
+.welcome-message,
+.button-container button,
+.button-container .btn {
+    font-family: 'Metamorphous', serif;
+}
+preguntasG, preguntasIm, preguntasE{
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 18px;
+    color: #f1d96b;
+    text-shadow: 0 0 8px rgba(241, 217, 107, 0.6);
+    animation: fadeIn 2s ease-in-out;
+}
+.button{
+    display:flex;
+    flex-direction:column;
+    align-items:center;   /* centra horizontalmente */
+    gap:18px;
+    width:100%;
+}
+
+/* Si usas <a> envolviendo el botón, que sea bloque y ocupe ancho */
+.button{
+    display:block;        /* antes era inline */
+    width:100%;
+    text-align:center;
+    text-decoration: none !important;
+}
+
+/* Botones centrados y con ancho fijo relativo */
+.button{
+    display:block;        /* quita el flex que se aplicaba por error */
+    width:80%;
+    max-width:250px;
+    padding:14px;
+    text-align:center;
+    font-size:17px;
+    font-weight:600;
+    border:2px solid #f1d96b;
+    background:rgba(241,217,107,.15);
+    color:#f5f5f5;
+    border-radius:10px;
+    cursor:pointer;
+    transition:all .3s ease;
+    letter-spacing:.5px;
+    box-shadow:0 0 10px rgba(241,217,107,.3);
+    margin:0 auto;        /* asegura centrado del bloque */
+    text-decoration: none;
+}
+
+/* Hover SOLO para los botones de la caja */
+.button{
+    background:rgba(241,217,107,.35);
+    color:#f1d96b;
+    transform:scale(1.07);
+    box-shadow:0 0 25px rgba(241,217,107,.8);
+}
+
+
