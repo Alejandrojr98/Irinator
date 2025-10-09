@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>¡Persona Acertada!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
 </head>
 <body>
-$END$
+
+<header>
+  IRINATOR
+</header>
+
+<div class="main-container">
+  <!-- Imagen del genio celebrando -->
+  <div class="left-box">
+    <img src="img/irinamuyfeliz.png" alt="Genio Feliz">
+  </div>
+
+  <!-- Mensaje de acierto -->
+  <div class="right-box">
+    <div class="question-box">
+      <h2>¡Este es tu animal!</h2>
+      <p id="nombrePersona"></p>
+
+      <div class="button-container">
+        <button onclick="window.location.href='/'">Volver al inicio</button>
+        <button onclick="window.location.href='animales'">Jugar otra vez</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/game2.js"></script>
+
+<audio id="bgMusic" src="audio/mistico_magia.mp3" loop></audio>
+<script src="js/music.js"></script>
 </body>
 </html>

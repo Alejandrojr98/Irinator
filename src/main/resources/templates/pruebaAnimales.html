@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Prueba</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -14,7 +15,8 @@
     <div class="left-box">
         <img src="img/irinaneutra.png" alt="Genio">
     </div>
-    <h2 th:text="${preguntas.pregunta}"></h2>
+<!--    <h2 th:text="${preguntas.pregunta}"></h2>-->
+    <h2 th:text="${pregunta}">Pregunta</h2>
     <form th:action="@{/filtrar}" method="post">
         <input type="hidden" name="i" th:value="${i}" />
         <div class="answers">

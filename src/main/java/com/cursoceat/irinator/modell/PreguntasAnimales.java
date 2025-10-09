@@ -1,6 +1,7 @@
 package com.cursoceat.irinator.modell;
 
 public class PreguntasAnimales {
+    private int codigo;
     private String pregunta;
 
     public PreguntasAnimales() {
@@ -8,6 +9,19 @@ public class PreguntasAnimales {
 
     public PreguntasAnimales(String pregunta) {
         this.pregunta = pregunta;
+    }
+
+    public PreguntasAnimales(int codigo, String pregunta) {
+        this.codigo = codigo;
+        this.pregunta = pregunta;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getPregunta() {
@@ -21,7 +35,8 @@ public class PreguntasAnimales {
     @Override
     public String toString() {
         return "PreguntasAnimales{" +
-                "pregunta='" + pregunta + '\'' +
+                "codigo=" + codigo +
+                ", pregunta='" + pregunta + '\'' +
                 '}';
     }
 }

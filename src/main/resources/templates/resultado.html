@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Resultado</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
 </head>
 <body>
 <header>
@@ -17,8 +18,31 @@
   <div>
     <h2>El animal es:</h2>
 
-    <p th:text="${animales}"></p>
+<!--    <p th:text="${animales}"></p>-->
 <!--    <img th:src="@{${animales.imagen.datos}}" alt="Imagen" width="150"/>-->
+<!--    <ul>-->
+<!--      <li th:each="animal:${animales}">-->
+<!--&lt;!&ndash;        <span th:text="${animal.nombre}">Nombre</span>&ndash;&gt;-->
+<!--        <p th:text="${animal.nombre}"></p>-->
+<!--        <img th:src="@{${animal.imagen.datos}}" alt="Imagen" width="150"/>-->
+<!--      </li>-->
+<!--    </ul>-->
+      <div th:if="${#lists.isEmpty(animales)}">
+          <p>No se encontraron animales que coincidan con los criterios.</p>
+      </div>
+      <div th:if="${!#lists.isEmpty(animales)}">
+          <ul>
+              <li th:each="animal:${animales}">
+                  <p th:text="${animal.nombre}"></p>
+                  <img th:src="@{${animal.imagen.datos}}" alt="Imagen" width="150"/>
+            </li>
+          </ul>
+      </div>
+      <div class="button-container">
+          <a th:href="@{/reiniciar}">
+              <button type="button">Reiniciar</button>
+          </a>
+      </div>
   </div>
 </div>
 </body>

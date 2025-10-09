@@ -3,9 +3,11 @@ package com.cursoceat.irinator.modell;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="animales")
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int idAnimal;
     private String nombre;
     private Boolean mamifero;
