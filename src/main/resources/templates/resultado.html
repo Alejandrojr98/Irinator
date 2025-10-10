@@ -17,16 +17,6 @@
   </div>
   <div>
     <h2>El animal es:</h2>
-
-<!--    <p th:text="${animales}"></p>-->
-<!--    <img th:src="@{${animales.imagen.datos}}" alt="Imagen" width="150"/>-->
-<!--    <ul>-->
-<!--      <li th:each="animal:${animales}">-->
-<!--&lt;!&ndash;        <span th:text="${animal.nombre}">Nombre</span>&ndash;&gt;-->
-<!--        <p th:text="${animal.nombre}"></p>-->
-<!--        <img th:src="@{${animal.imagen.datos}}" alt="Imagen" width="150"/>-->
-<!--      </li>-->
-<!--    </ul>-->
       <div th:if="${#lists.isEmpty(animales)}">
           <p>No se encontraron animales que coincidan con los criterios.</p>
       </div>

@@ -2,10 +2,9 @@ package com.cursoceat.irinator.controller;
 
 import com.cursoceat.irinator.modell.Animal;
 import com.cursoceat.irinator.modell.PreguntasAnimales;
-import com.cursoceat.irinator.repository.AnimalRepository;
-import com.cursoceat.irinator.repository.ImagenRepository;
-import com.cursoceat.irinator.repository.PersonaRepository;
-import com.cursoceat.irinator.service.AnimalServicio;
+import com.cursoceat.irinator.modell.SugerenciasAnimales;
+import com.cursoceat.irinator.modell.SugerenciasPersonas;
+import com.cursoceat.irinator.repository.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -17,10 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller("/")
@@ -35,12 +32,17 @@ public class IrinatorController {
     private final PersonaRepository personaRepository;
 
     @Autowired
-    private AnimalServicio animalServicio;
+    private final SugerenciaAnimalesRepository sugerenciaAnimalesRepository;
 
-    public IrinatorController(AnimalRepository animalRepository, ImagenRepository imagenRepository, PersonaRepository personaRepository) {
+    @Autowired
+    private final SugerenciaPersonasRepository sugerenciaPersonasRepository;
+
+    public IrinatorController(AnimalRepository animalRepository, ImagenRepository imagenRepository, PersonaRepository personaRepository, SugerenciaAnimalesRepository sugerenciaAnimalesRepository, SugerenciaPersonasRepository sugerenciaPersonasRepository) {
         this.animalRepository = animalRepository;
         this.imagenRepository = imagenRepository;
         this.personaRepository = personaRepository;
+        this.sugerenciaAnimalesRepository = sugerenciaAnimalesRepository;
+        this.sugerenciaPersonasRepository = sugerenciaPersonasRepository;
     }
 
 //    private List<PreguntasAnimales> obtenerPreguntas(){
@@ -114,6 +116,11 @@ public class IrinatorController {
         return "formularioAnimales";
     }
 
+    @GetMapping("/formularioPersonas")
+    public String formularioPersonas() {
+        return "formularioPersonas";
+    }
+
     @GetMapping("/indexbbdd")
     public String indexbasedatos() {
         return "indexbbdd";
@@ -125,7 +132,9 @@ public class IrinatorController {
     }
 
     @GetMapping("/listado")
-    public String listado() {
+    public String listado(Model model) {
+        model.addAttribute("sugerenciasA", sugerenciaAnimalesRepository.findAll());
+        model.addAttribute("sugerenciasP", sugerenciaPersonasRepository.findAll());
         return "listado";
     }
 
@@ -208,29 +217,22 @@ public class IrinatorController {
         PreguntasAnimales preguntaActual = preguntasRandom.get(i);
 
         // Aplicar filtro según la pregunta actual
-//        List<Animal> filtrados = animalesFiltrados.stream().filter(animal -> {
-//            // Aquí debes mapear la pregunta actual al atributo del animal
-//            // Ejemplo si tu preguntaActual tiene un código o texto que identifica el atributo:
-//            switch (preguntaActual.getPregunta()) {
-//                case "mamifero": return animal.getMamifero() != null && animal.getMamifero() == respuesta;
-//                case "ave": return animal.getAve() != null && animal.getAve() == respuesta;
-//                case "pelaje": return animal.getPelaje() != null && animal.getPelaje() == respuesta;
-//                case "huevos": return animal.getHuevos() != null && animal.getHuevos() == respuesta;
-//                case "domestico": return animal.getDomestico() != null && animal.getDomestico() == respuesta;
-//                case "pez": return animal.getPez() != null && animal.getPez() == respuesta;
-//                default: return true;
-//            }
-//        }).collect(Collectors.toList());
-
         List<Animal> filtrados = animalesFiltrados.stream().filter(animal -> {
             switch (preguntaActual.getCodigo()) {
-                case 0: return animal.getMamifero() != null && animal.getMamifero() == respuesta;
-                case 1: return animal.getAve() != null && animal.getAve() == respuesta;
-                case 2: return animal.getPelaje() != null && animal.getPelaje() == respuesta;
-                case 3: return animal.getHuevos() != null && animal.getHuevos() == respuesta;
-                case 4: return animal.getDomestico() != null && animal.getDomestico() == respuesta;
-                case 5: return animal.getPez() != null && animal.getPez() == respuesta;
-                default: return true;
+                case 0:
+                    return animal.getMamifero() != null && animal.getMamifero() == respuesta;
+                case 1:
+                    return animal.getAve() != null && animal.getAve() == respuesta;
+                case 2:
+                    return animal.getPelaje() != null && animal.getPelaje() == respuesta;
+                case 3:
+                    return animal.getHuevos() != null && animal.getHuevos() == respuesta;
+                case 4:
+                    return animal.getDomestico() != null && animal.getDomestico() == respuesta;
+                case 5:
+                    return animal.getPez() != null && animal.getPez() == respuesta;
+                default:
+                    return true;
             }
         }).collect(Collectors.toList());
 
@@ -247,6 +249,114 @@ public class IrinatorController {
         return "redirect:/pruebaAnimales?i=" + (i + 1);
     }
 
+//    @PostMapping("/filtrar")
+//    public String filtrarAnimales(@RequestParam("respuesta") boolean respuesta,
+//                                  @RequestParam("i") int i,
+//                                  HttpSession session,
+//                                  Model model) {
+//
+//        // Obtener lista aleatoria de preguntas desde sesión
+//        List<PreguntasAnimales> preguntasRandom = (List<PreguntasAnimales>) session.getAttribute("preguntasRandom");
+//        if (preguntasRandom == null) {
+//            preguntasRandom = new ArrayList<>(preguntas); // si no está en sesión, usar orden original
+//            Collections.shuffle(preguntasRandom);
+//            session.setAttribute("preguntasRandom", preguntasRandom);
+//        }
+//
+//        // Obtener animales ya filtrados o cargar todos si es el paso 0
+//        List<Animal> animalesFiltrados = (List<Animal>) session.getAttribute("animalesFiltrados");
+//        if (animalesFiltrados == null || i == 0) {
+//            animalesFiltrados = animalRepository.findAll();
+//        }
+//
+//        // Guardar respuesta actual en sesión
+//        Map<Integer, Boolean> respuestasDadas = (Map<Integer, Boolean>) session.getAttribute("respuestasDadas");
+//        if (respuestasDadas == null) {
+//            respuestasDadas = new HashMap<>();
+//        }
+//        respuestasDadas.put(i, respuesta);
+//        session.setAttribute("respuestasDadas", respuestasDadas);
+//
+//        // Pregunta actual
+//        PreguntasAnimales preguntaActual = preguntasRandom.get(i);
+//
+//        // Filtrar animales según la respuesta
+//        List<Animal> filtrados = animalesFiltrados.stream().filter(animal -> {
+//            switch (preguntaActual.getCodigo()) {
+//                case 0: return animal.getMamifero() != null && animal.getMamifero() == respuesta;
+//                case 1: return animal.getAve() != null && animal.getAve() == respuesta;
+//                case 2: return animal.getPelaje() != null && animal.getPelaje() == respuesta;
+//                case 3: return animal.getHuevos() != null && animal.getHuevos() == respuesta;
+//                case 4: return animal.getDomestico() != null && animal.getDomestico() == respuesta;
+//                case 5: return animal.getPez() != null && animal.getPez() == respuesta;
+//                default: return true;
+//            }
+//        }).collect(Collectors.toList());
+//
+//        // Guardar nueva lista filtrada
+//        session.setAttribute("animalesFiltrados", filtrados);
+//
+//        // Si no quedan animales, redirigir a resultado vacío
+//        if (filtrados.isEmpty()) {
+//            model.addAttribute("mensaje", "No se encontró ningún animal con esas características.");
+//            return "resultado";
+//        }
+//
+//        // Calcular cuántas preguntas faltan
+//        int preguntasRestantes = preguntasRandom.size() - (i + 1);
+//
+//        // Si quedan exactamente 3 preguntas → intentar adivinar
+//        if (preguntasRestantes == 2) {
+//            Animal mejorCoincidencia = null;
+//            int mejorPuntaje = -1;
+//
+//            for (Animal animal : filtrados) {
+//                int puntaje = 0;
+//                for (Map.Entry<Integer, Boolean> entry : respuestasDadas.entrySet()) {
+//                    int idxPregunta = entry.getKey();
+//                    boolean respuestaUsuario = entry.getValue();
+//                    int codigoPregunta = preguntasRandom.get(idxPregunta).getCodigo();
+//
+//                    boolean coincide = false;
+//                    switch (codigoPregunta) {
+//                        case 0: coincide = animal.getMamifero() != null && animal.getMamifero() == respuestaUsuario; break;
+//                        case 1: coincide = animal.getAve() != null && animal.getAve() == respuestaUsuario; break;
+//                        case 2: coincide = animal.getPelaje() != null && animal.getPelaje() == respuestaUsuario; break;
+//                        case 3: coincide = animal.getHuevos() != null && animal.getHuevos() == respuestaUsuario; break;
+//                        case 4: coincide = animal.getDomestico() != null && animal.getDomestico() == respuestaUsuario; break;
+//                        case 5: coincide = animal.getPez() != null && animal.getPez() == respuestaUsuario; break;
+//                    }
+//
+//                    if (coincide) puntaje++;
+//                }
+//
+//                if (puntaje > mejorPuntaje) {
+//                    mejorPuntaje = puntaje;
+//                    mejorCoincidencia = animal;
+//                }
+//            }
+//
+//            // Mostrar mejor coincidencia
+//            model.addAttribute("animales", mejorCoincidencia);
+//            return "resultado";
+//        }
+//
+//        // Si queda solo un animal, mostrarlo directamente
+//        if (filtrados.size() == 1) {
+//            model.addAttribute("animales", filtrados.get(0));
+//            return "resultado";
+//        }
+//
+//        // Si no quedan preguntas, redirigir al final
+//        if (i + 1 >= preguntasRandom.size()) {
+//            return "redirect:/pruebaAnimales?i=" + preguntasRandom.size();
+//        }
+//
+//        // Siguiente pregunta
+//        return "redirect:/pruebaAnimales?i=" + (i + 1);
+//    }
+
+
     @GetMapping("/reiniciar")
     public String reiniciar(HttpSession session) {
         session.invalidate();
@@ -257,6 +367,53 @@ public class IrinatorController {
     public String jugarNuevo() {
         return "redirect:/animalesinicio";
     }
+
+
+    @PostMapping("/guardarA")
+    public String guardarSugerencia(@ModelAttribute SugerenciasAnimales sugerenciasAnimales) {
+        sugerenciasAnimales.setFecha(new Date());
+        sugerenciasAnimales.setEstado("Pendiente");
+        sugerenciaAnimalesRepository.save(sugerenciasAnimales);
+        return "redirect:/";
+    }
+
+    @PostMapping("/guardarP")
+    public String guardarSugerencia(@ModelAttribute SugerenciasPersonas sugerenciasPersonas) {
+        sugerenciasPersonas.setFecha(new Date());
+        sugerenciasPersonas.setEstado("Pendiente");
+        sugerenciaPersonasRepository.save(sugerenciasPersonas);
+        return "redirect:/";
+    }
+
+    @GetMapping("/nuevoA")
+    public String nuevaSugerenciaA(Model model) {
+        model.addAttribute("sugerenciaA", new SugerenciasAnimales());
+        return "formularioAnimales";
+    }
+
+    @GetMapping("/nuevoP")
+    public String nuevaSugerenciaP(Model model) {
+        model.addAttribute("sugerenciaP", new SugerenciasPersonas());
+        return "formularioPersonas";
+    }
+
+
+    @GetMapping("/eliminarP/{id}")
+    public String eliminarPersona(@PathVariable("id") int idP) {
+        sugerenciaPersonasRepository.deleteById(idP);
+        return "redirect:/listado";
+    }
+
+    @GetMapping("/eliminarA/{id}")
+    public String eliminarAnimal(@PathVariable("id") int idA) {
+        sugerenciaAnimalesRepository.deleteById(idA);
+        return "redirect:/listado";
+    }
+
+
+
+
+
 
 
 

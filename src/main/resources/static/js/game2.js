@@ -1,3 +1,5 @@
+// game2.js
+
 const animales = {
     type: "q",
     text: "¿Vive en el agua?",
@@ -56,10 +58,11 @@ const resultEl = document.getElementById('resultText');
 const yesBtn = document.getElementById('btnYes');
 const noBtn = document.getElementById('btnNo');
 const inicioBtn = document.getElementById('reiniciar');
-const nuevoBtn=document.getElementById('jugarNuevo');
+const nuevoBtn = document.getElementById('jugarNuevo');
 const animalImgEl = document.getElementById('animalImage');
-const imgGenio=document.getElementById("genio");
-let contadorYes=0;
+const imgGenio = document.getElementById("genio");
+const formBtn = document.getElementById("formularioA");
+let contadorYes = 0;
 
 function render() {
     if (current.type === 'q') {
@@ -68,52 +71,73 @@ function render() {
         yesBtn.style.display = 'inline-block';
         noBtn.textContent = 'No';
         inicioBtn.style.display = 'none';
-        animalImgEl.style.display = 'none';
         nuevoBtn.style.display = 'none';
-        if(contadorYes===2){
-            imgGenio.src ="img/irinamuyfeliz.png";
+        formBtn.style.display = 'none';
+        // Ocultar imagen del animal y detener palpitación mientras hay preguntas
+        animalImgEl.style.display = 'none';
+        animalImgEl.classList.remove('palpita');
+
+        if (contadorYes === 2) {
+            imgGenio.src = "img/irinamuyfeliz.png";
+            console.log(contadorYes)
+        }else if(contadorYes === -1 || contadorYes === -2){
+            imgGenio.src = "img/irinaenfadada.png";
+            console.log(contadorYes)
+        }else if(contadorYes === 0 || contadorYes=== 1){
+            imgGenio.src = "img/irinaneutra.png";
+            console.log(contadorYes)
+        }else if(contadorYes < -2){
+            imgGenio.src = "img/irinamuyenfadada.png";
+            console.log(contadorYes)
         }
-        contadorYes+=1;
+        // contadorYes += 1;
     } else {
+        // Estado: ha adivinado el animal
         questionEl.textContent = '';
-        resultEl.textContent = `Creo que estás pensando en ${current.text}!`;
+        // 🔹 Cambiamos a innerHTML para aplicar la clase de resaltado dorado
+        resultEl.innerHTML = `Creo que estás pensando en <span class="resaltado">${current.text}</span>!`;
         yesBtn.style.display = 'none';
         noBtn.style.display = 'none';
         inicioBtn.style.display = 'block';
         nuevoBtn.style.display = 'block';
+        formBtn.style.display = 'block';
+        imgGenio.src = "img/irinamuyfeliz.png";
 
-        // Mostrar imagen del animal
+        // Mostrar imagen del animal adivinado y aplicar animación de palpitación
         if (current.img) {
             animalImgEl.src = `img/${current.img}`;
             animalImgEl.style.display = 'block';
+
+            // Reiniciar animación si se repite el estado
+            animalImgEl.classList.remove('palpita');
+            void animalImgEl.offsetWidth; // forzar reflow
+            animalImgEl.classList.add('palpita');
         } else {
             animalImgEl.style.display = 'none';
+            animalImgEl.classList.remove('palpita');
         }
     }
 }
 
-
-
 yesBtn.addEventListener('click', () => {
     if (current.yes) {
         current = current.yes;
+        contadorYes += 1;
         render();
     }
 });
 
 noBtn.addEventListener('click', () => {
     if (current.type === 'g') {
-        current = animales; // reiniciar
+        current = animales; // reiniciar árbol
+        contadorYes -= 1;
         render();
     } else if (current.no) {
         current = current.no;
+        contadorYes -= 1;
         render();
     }
 });
-// inicioBtn.addEventListener('click', () => {
-//         window.location.href = "/index.html";
-// });
-
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') yesBtn.click();
@@ -122,5 +146,3 @@ document.addEventListener('keydown', (e) => {
 });
 
 render();
-
-
