@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>IRINATOR - Maravillas del Mundo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
+</head>
+<body>
+<header>IRINATOR </header>
+
+<div class="main-container">
+
+    <p>Piensa en una maravilla del mundo de esta imagen...</p>
+<!--    <img class="animalitos-img" src="img/imagenanimalitos.png" alt="Maravillas del Mundo" />-->
+
+
+    <section class="carousel" role="region" aria-label="Carrusel de las 7 maravillas" data-carousel>
+        <div class="carousel__viewport" id="carouselViewport" data-viewport>
+            <div class="carousel__slide" data-slide><img src="img/china.png"  alt="Gran Muralla China"></div>
+            <div class="carousel__slide" data-slide><img src="img/petra.png"  alt="Petra, Jordania"></div>
+            <div class="carousel__slide" data-slide><img src="img/cristo.png" alt="Cristo Redentor, Brasil"></div>
+            <div class="carousel__slide" data-slide><img src="img/machu.png"  alt="Machu Picchu, Perú"></div>
+            <div class="carousel__slide" data-slide><img src="img/chichen.png" alt="Chichén Itzá, México"></div>
+            <div class="carousel__slide" data-slide><img src="img/coliseo.png" alt="Coliseo, Italia"></div>
+            <div class="carousel__slide" data-slide><img src="img/taj.png"     alt="Taj Mahal, India"></div>
+        </div>
+
+        <button class="carousel__btn carousel__btn--prev" aria-label="Anterior" id="btnPrev" data-prev>‹</button>
+        <button class="carousel__btn carousel__btn--next" aria-label="Siguiente" id="btnNext" data-next>›</button>
+
+        <div class="carousel__dots" id="carouselDots" aria-label="Indicadores de diapositivas" data-dots></div>
+
+        <div class="carousel__auto">
+            <label>
+                <input type="checkbox" id="autoPlayToggler" checked data-autoplay>
+                Autoplay
+            </label>
+        </div>
+    </section>
+
+    <div class="play-button-container">
+        <a th:href="@{/maravillas}">
+            <button type="button" class="play-btn">Jugar</button>
+        </a>
+    </div>
+</div>
+
+<script src="js/carousel.js"></script>
+<audio id="bgMusic" src="audio/mistico_magia.mp3" loop></audio>
+<script src="js/music.js"></script>
+
+
+</body>
+</html>

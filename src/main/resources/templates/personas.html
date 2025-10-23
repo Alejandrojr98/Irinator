@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>IRINATOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
+    <style>
+        /* Animación de palpitación */
+        @keyframes palpitar {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        #imagenPersonaIntentoAcertada {
+            animation: palpitar 1.6s ease-in-out infinite;
+        }
+    </style>
+
+
 </head>
 <body>
-$END$
+
+<header>
+    IRINATOR
+</header>
+
+<div class="main-container">
+    <div class="left-box">
+        <img src="img/irinaneutra.png" alt="Genio" id="imagenIrina">
+    </div>
+
+    <!-- Pregunta actual -->
+<!--     📌 Contenedor Derecho: Texto + Botones-->
+    <div class="right-box">
+        <div class="question-box" id="seccionPreguntas">
+            <div>
+                <p id="questionText"></p>
+            </div>
+            <div class="answers">
+                <button id="btnYes">Sí</button>
+                <button id="btnNo">No</button>
+            </div>
+            <div>
+                <p id="resultText"></p>
+            </div>
+
+
+        </div>
+
+            <!-- Contenedor para mostrar cuando hacemos intento de adivinar -->
+
+            <div id="personaAcertada" style="display:none;" class="question-box">
+                <p >¿La persona en la que estás pensando es esta?</p>
+                <div class="answers">
+                    <img id="imagenPersonaIntentoAcertada" src="" alt="Imagen del alumno" style="max-width: 300px; border-radius: 8px; margin: 10px 0;">
+                    <button id="btnAcertado">Sí</button>
+                    <button id="btnNoAcertado" >No</button>
+                </div>
+
+            </div>
+
+            <div id="personaNoAcertada" style="display:none;">
+                <p>¡Vaya! No consigo adivinarlo. ¿Quieres seguir intentándolo?</p>
+                <div class="answers">
+                <button id="btnSeguirIntentando" class="answers">Seguir jugando</button>
+                <button id="btnFinalizarJuego" class="answers">Finalizar juego</button>
+                </div>
+            </div>
+
+
+    </div>
+
+</div>
+<audio id="bgMusic" src="audio/mistico_magia.mp3" loop></audio>
+
+<script src="js/music.js"></script>
+<script src="js/game.js"></script>
+
 </body>
 </html>

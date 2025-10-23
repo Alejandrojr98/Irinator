@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>IRINATOR - Animales</title>
+    <title>IRINATOR - Maravillas del Mundo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -25,22 +25,20 @@
             <div class="answers">
                 <button id="btnYes">Sí</button>
                 <button id="btnNo">No</button>
+                <button id="btnUnknown">No sé</button>
             </div>
 
-            <p id="resultText"></p>
+<!--            <p id="resultText"></p>-->
 
-            <img id="animalImage" src="" alt="Animal adivinado"
-                 style="display:none; width: 300px; height:300px; margin-top: 10px;">
+<!--            <img id="animalImage" src="" alt="Animal adivinado"-->
+<!--                 style="display:none; width: 300px; height:300px; margin-top: 10px;">-->
 
             <div class="button-container" style="margin-top:20px;">
-                <a th:href="@{/reiniciar}">
-                    <button type="button" id="reiniciar" style="display:none;">Menu</button>
+                <a th:href="@{/reiniciarM}">
+                    <button type="button" id="reiniciarM" style="display:none;">Menu</button>
                 </a>
-                <a th:href="@{/jugarNuevo}">
-                    <button type="button" id="jugarNuevo" style="display:none;">Jugar de Nuevo</button>
-                </a>
-                <a th:href="@{/nuevoA}">
-                    <button type="button" id="formularioA" style="display:none;">Hacer Sugerencia</button>
+                <a th:href="@{/jugarNuevoM}">
+                    <button type="button" id="jugarNuevoM" style="display:none;">Jugar de Nuevo</button>
                 </a>
             </div>
         </div>
@@ -52,7 +50,7 @@
 
 <!-- Scripts -->
 <script src="js/music.js"></script>
-<script src="js/game2.js"></script>
+<script src="js/game3.js"></script>
 
 </body>
 </html>

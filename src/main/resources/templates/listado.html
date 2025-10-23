@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Sugerencias - IRINATOR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
+</head>
+<body>
+<header>IRINATOR - Listado de Sugerencias ✨</header>
+
+<div class="crud-container">
+  <h2 class="section-title">🐾 Sugerencias de Animales</h2>
+  <table id="tablaAnimales">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Pregunta específica</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Ejemplo de fila (esto luego vendría de la base de datos) -->
+    <tr th:each="s:${sugerenciasA}">
+      <td th:text="${s.idSugerencia}"></td>
+      <td th:text="${s.nombre}"></td>
+      <td th:text="${s.pregunta}"></td>
+      <td th:text="${#dates.format(s.fecha,'dd/MM/yyyy')}"></td>
+      <td th:text="${s.estado}" class="estado"></td>
+      <td class="crud-actions">
+        <button class="aprobar-btn">Aprobar</button>
+        <a th:href="@{/eliminarA/{id}(id=${s.idSugerencia})}" onclick="return confirm('¿Desea continuar?')"><button class="eliminar-btn">Eliminar</button></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="crud-container">
+  <h2 class="section-title">👤 Sugerencias de Personas</h2>
+  <table id="tablaPersonas">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Pregunta específica</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Ejemplo de fila -->
+    <tr  th:each="p:${sugerenciasP}">
+      <td th:text="${p.idSugerencia}">1</td>
+      <td th:text="${p.nombre}">Cristiano Ronaldo</td>
+      <td th:text="${p.pregunta}">¿Es uno de los mejores futbolistas?</td>
+      <td th:text="${#dates.format(p.fecha,'dd/MM/yyyy')}">2025-10-09</td>
+      <td th:text="${p.estado}" class="estado">Pendiente</td>
+      <td class="crud-actions">
+        <button class="aprobar-btn">Aprobar</button>
+        <a th:href="@{/eliminarP/{id}(id=${p.idSugerencia})}" onclick="return confirm('¿Desea continuar?')"><button class="eliminar-btn">Eliminar</button></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--<div class="volver-container">-->
+<!--  <a th:href="@{/indexejecutar}">-->
+<!--    <button type="button">Volver al Inicio</button>-->
+<!--  </a>-->
+<!--</div>-->
+
+<div class="button-container">
+  <a th:href="@{/}" id="btn_ini"><button type="button">Volver al Inicio</button></a>
+</div>
+
+<script src="js/botonescrud.js"></script>
+<script src="js/music.js"></script>
+</body>
+</html>

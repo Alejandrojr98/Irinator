@@ -57,12 +57,12 @@ public class IrinatorController {
 //    }
 
     private final List<PreguntasAnimales> preguntas = List.of(
-            new PreguntasAnimales(0,"¿Es un mamífero?"),
-            new PreguntasAnimales(1,"¿Es un ave?"),
-            new PreguntasAnimales(2,"¿Tiene pelaje?"),
-            new PreguntasAnimales(3,"Pone huevos?"),
-            new PreguntasAnimales(4,"¿Es doméstico?"),
-            new PreguntasAnimales(5,"Es acuatico?")
+            new PreguntasAnimales(0, "¿Es un mamífero?"),
+            new PreguntasAnimales(1, "¿Es un ave?"),
+            new PreguntasAnimales(2, "¿Tiene pelaje?"),
+            new PreguntasAnimales(3, "Pone huevos?"),
+            new PreguntasAnimales(4, "¿Es doméstico?"),
+            new PreguntasAnimales(5, "Es acuático?")
             // Puedes añadir más preguntas
     );
 
@@ -111,6 +111,31 @@ public class IrinatorController {
         return "animales";
     }
 
+    @GetMapping("/maravillas")
+    public String maravillas() {
+        return "maravillas";
+    }
+
+    @GetMapping("maravillasinicio")
+    public String maravillasinicio() {
+        return "maravillasinicio";
+    }
+
+    @GetMapping("redesinicio")
+    public String redesinicio() {
+        return "redesinicio";
+    }
+
+    @GetMapping("/redessociales")
+    public String redessociales() {
+        return "redessociales";
+    }
+
+    @GetMapping("/redAcertada")
+    public String redAcertada() {
+        return "redAcertada";
+    }
+
     @GetMapping("/formularioAnimales")
     public String formularioAnimal() {
         return "formularioAnimales";
@@ -124,6 +149,11 @@ public class IrinatorController {
     @GetMapping("/indexbbdd")
     public String indexbasedatos() {
         return "indexbbdd";
+    }
+
+    @GetMapping("/indexejecutar")
+    public String indexEjecutar() {
+        return "index";
     }
 
     @GetMapping("/index")
@@ -366,6 +396,22 @@ public class IrinatorController {
     @GetMapping("/jugarNuevo")
     public String jugarNuevo() {
         return "redirect:/animalesinicio";
+    }
+
+    @GetMapping("/reiniciarM")
+    public String reiniciarM(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    @GetMapping("/jugarNuevoM")
+    public String jugarNuevoM() {
+        return "redirect:/maravillasinicio";
+    }
+
+    @GetMapping("/jugarRS")
+    public String jugarRS() {
+        return "redirect:/redesinicio";
     }
 
 

@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
-
 </head>
 <body>
 
@@ -25,34 +24,25 @@
     </p>
 
     <!-- 📌 Contenedor Derecho: Texto + Botones -->
-    <div class="right-box" style="margin-top: 80px;">
+    <div class="right-box">
 
         <h2>Seleccione una opción para empezar a jugar</h2>
         <div class="button-container">
-            <a th:href="@{/personas}">
-                <button type="button">Personas</button>
-            </a>
-            <a th:href="@{/animalesinicio}">
-                <button type="button">Animales</button>
-            </a>
-            <a th:href="@{/maravillasinicio}">
-                <button type="button">Maravillas del Mundo</button>
-            </a>
-            <a th:href="@{/redesinicio}">
-                <button type="button">Redes Sociales</button>
-            </a>
-
-<!--            <a th:href="@{/pruebaAnimales}">-->
-<!--                <button type="button">Animales Prueba</button>-->
+<!--            <a th:href="@{/personas}">-->
+<!--                <button type="button">Personas</button>-->
 <!--            </a>-->
+<!--            <a th:href="@{/animalesinicio}">-->
+<!--                <button type="button">Animales</button>-->
+<!--            </a>-->
+            <a th:href="@{/pruebaAnimales}">
+                <button type="button">Animales Prueba</button>
+            </a>
         </div>
     </div>
 </div>
 
 <audio id="bgMusic" src="audio/mistico_magia.mp3" loop></audio>
 <script src="js/music.js"></script>
-<script src="js/genioBotones.js"></script>
-
 
 </body>
 </html>

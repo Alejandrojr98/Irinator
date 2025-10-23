@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sugerir un Animal - IRINATOR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Metamorphous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
+</head>
+<body>
+<header>IRINATOR </header>
+
+<div class="main-containerf">
+    <div class="right-box">
+        <h2>Sugerir un nuevo animal</h2>
+
+        <form th:action="@{/guardarA}" method="POST" class="sugerencia-form" th:object="${sugerenciaA}">
+            <div class="form-group">
+                <label for="nombre_animal">🐶 Nombre del animal:</label>
+                <input type="text" id="nombre_animal" name="nombre_animal" required placeholder="Ej: Delfín" th:field="*{nombre}">
+            </div>
+
+            <div class="form-group">
+                <label for="pregunta_especifica">❓ Pregunta específica:</label>
+                <textarea id="pregunta_especifica" name="pregunta_especifica" rows="4" required placeholder="Ej: ¿Emite sonidos para comunicarse bajo el agua?" th:field="*{pregunta}"></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" id="enviarS">Enviar sugerencia</button>
+            </div>
+        </form>
+    </div>
+    <div class="button-container">
+        <a th:href="@{/}"><button type="button">Volver al Inicio</button></a>
+    </div>
+</div>
+<script src="js/music.js"></script>
+<script>
+    let enviar = document.getElementById("enviarS");
+    enviar.addEventListener("click", ()=>{
+        alert("Sugerencia enviada.");
+    });
+</script>
+</body>
+</html>

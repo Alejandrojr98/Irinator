@@ -2,6 +2,7 @@
 const alumnos = [
     {
         nombre: "Claudia",
+        img: "claudia.png",
         respuestas: {
 
             // Preguntas Generales
@@ -52,17 +53,19 @@ const alumnos = [
     },
     {
         nombre: "Alejandro",
+        img: "alejandro.png",
+
         respuestas: {
             // Preguntas Generales
             septum: false,
             gafas: true,
             energetica: false,
-            cafe: true,
+            cafe: false,
             alto:true,
             tatuajes: false,
-            nacer: false,
-            bolso: true,
-            tomelloso: false,
+            nacer: true,
+            bolso: false,
+            tomelloso: true,
 
             // Preguntas Intermedias
             arregla:true,
@@ -100,6 +103,7 @@ const alumnos = [
     },
     {
         nombre: "Carlos",
+        img: "carlos.png",
         respuestas: {
             // Preguntas Generales
             septum: false,
@@ -148,6 +152,7 @@ const alumnos = [
     },
     {
         nombre: "Ángeles",
+        img: "angeles.png",
         respuestas: {
             // Preguntas Generales
             septum:false,
@@ -196,6 +201,7 @@ const alumnos = [
     },
     {
         nombre: "Ana",
+        img: "ana.png",
         respuestas: {
 
             // Preguntas Generales
@@ -245,7 +251,8 @@ const alumnos = [
     },
 
     {
-        nombre: "MariJose",
+        nombre: "Maria Jose",
+        img: "marijose.png",
         respuestas: {
 
             // Preguntas Generales
@@ -296,6 +303,7 @@ const alumnos = [
 
     {
         nombre: "Irina",
+        img: "irina.png",
         respuestas: {
 
             // Preguntas Generales
@@ -346,6 +354,7 @@ const alumnos = [
 
     {
         nombre: "Alberto",
+        img: "alberto.png",
         respuestas: {
 
             // Preguntas Generales
@@ -396,6 +405,7 @@ const alumnos = [
 
     {
         nombre: "Ángela",
+        img: "angela.png",
         respuestas: {
 
             // Preguntas Generales
@@ -446,6 +456,7 @@ const alumnos = [
 
     {
         nombre: "David",
+        img: "david.png",
         respuestas: {
 
             // Preguntas Generales
@@ -496,6 +507,7 @@ const alumnos = [
 
     {
         nombre: "Alba",
+        img: "alba.png",
         respuestas: {
 
             // Preguntas Generales
@@ -546,6 +558,7 @@ const alumnos = [
 
     {
         nombre: "Mª Carmen",
+        img: "mcarmen.png",
         respuestas: {
 
             // Preguntas Generales
@@ -596,6 +609,7 @@ const alumnos = [
 
     {
         nombre: "Nayeli",
+        img: "nayeli.png",
         respuestas: {
 
             // Preguntas Generales
@@ -646,6 +660,7 @@ const alumnos = [
 
     {
         nombre: "Ainhoa",
+        img: "ainhoa.png",
         respuestas: {
 
             // Preguntas Generales
@@ -696,6 +711,7 @@ const alumnos = [
 
     {
         nombre: "Ana M.",
+        img: "anam.png",
         respuestas: {
 
             // Preguntas Generales
@@ -746,6 +762,7 @@ const alumnos = [
 
     {
         nombre: "Irene",
+        img: "irene.png",
         respuestas: {
 
             // Preguntas Generales
@@ -809,19 +826,19 @@ const preguntasG = [
 ];
 
 const preguntasIm = [
-    {id: "arregla", texto: '¿Es el típico try…catch (siempre arregla problemas de otros)?'},
-    {id: "comenta", texto: '¿Es un System.out.println() (comenta absolutamente todo en voz alta)?'},
-    {id: "fuera", texto: '¿Es un import (trae cosas de fuera que todos usan)?'},
-    {id: "feliz", texto: '¿Es como un boolean (solo tiene dos estados: feliz o enfadado)?'},
-    {id: "cTodo", texto: '¿Es como un scanner.nextLine() (lo comenta todo)?'},
-    {id: "metePata", texto: '¿Es como un bug recurrente (siempre mete la pata en lo mismo)?'},
-    {id: "dormido", texto: '¿Es un thread.sleep() (se queda dormido en medio de la clase)?'},
-    {id: "respTodo", texto: '¿Se parece a un if else (siempre tiene respuesta para todo)?'},
-    {id: "calla", texto: '¿Es como un while(true) (nunca se calla)?'},
-    {id: "ocupado", texto: '¿Es un Runnable (corre de aquí para allá siempre ocupado)?'},
-    {id: "observa", texto: '¿Es un Observer (observa todo sin decir nada, pero se entera de todo)?'},
-    {id: "pideDes", texto: '¿Es como un break → porque corta la clase pidiendo descanso?'},
-    {id: "tarde", texto: '¿Es un constructor que siempre se ejecuta 10 minutos después del resto(Llega tarde)? '},
+    {id: "arregla", texto: '¿Siempre arregla problemas de otros?'},
+    {id: "comenta", texto: '¿Comenta absolutamente todo en voz alta?'},
+    {id: "fuera", texto: '¿Trae cosas de fuera que todos usan?'},
+    {id: "feliz", texto: '¿Tiene solo dos estados: feliz o enfadado?'},
+    {id: "cTodo", texto: '¿Lo comenta todo?'},
+    {id: "metePata", texto: '¿Siempre mete la pata en lo mismo?'},
+    {id: "dormido", texto: '¿Se queda dormido en medio de la clase?'},
+    {id: "respTodo", texto: '¿Siempre tiene respuesta para todo?'},
+    {id: "calla", texto: '¿Nunca se calla?'},
+    {id: "ocupado", texto: '¿Corre de aquí para allá siempre ocupado?'},
+    {id: "observa", texto: '¿Observa todo sin decir nada, pero se entera de todo?'},
+    {id: "pideDes", texto: '¿Siempre corta la clase pidiendo descanso?'},
+    {id: "tarde", texto: '¿Suele llegar tarde?'},
 ];
 
 const preguntasE = [
@@ -836,7 +853,7 @@ const preguntasE = [
     {id: "azucar", texto: '¿Le dan vahídos cuando le baja el azúcar?'},
     {id: "militar", texto: '¿Ha sido militar?'},
     {id: "sueldo", texto: '¿Es a la que más sueldo le han quitado?'},
-    {id: "fumar", texto: '¿Suele decir: Paradita para fumar?'},
+    {id: "fumar", texto: '¿Suele decir:"Paradita para fumar"?'},
     {id: "clase", texto: '¿Es la persona que más veces se ha ido de clase?'},
     {id: "codigo", texto: '¿Le sale el código siempre en rojo?'},
     {id: "coche", texto: '¿Se ha tenido que ir de clase para examinarse del coche?'},
@@ -849,282 +866,311 @@ const preguntas = [
     {preguntasE},
 ]
 
-let alumnosRestantes = [...alumnos];
+// Lista de alumnos y preguntas (suponemos que ya tienes el array "alumnos" y los arrays "preguntasG", "preguntasIm", "preguntasE")
 
-// Funcion para filtrar las preguntas con mayor respuesta True
+let alumnosRestantes = [...alumnos]; // copia alumnos
+
+// Función para contar cuántos alumnos responden true a una pregunta
 function contarAlumnosConRespuestaTrue(alumnos, idPregunta) {
     return alumnos.filter(alumno => alumno.respuestas[idPregunta] === true).length;
 }
 
-// Función que ordena un array de preguntas según el número de alumnos que respondieron true
+// Función que ordena preguntas por número de alumnos con respuesta true
 function ordenarPreguntasPorNumeroAlumnosTrue(preguntas, alumnos) {
-    // Hacemos una copia para no modificar el original
-    return preguntas.slice().sort((pregA, pregB) => {
-        const contarA = contarAlumnosConRespuestaTrue(alumnos, pregA.id);
-        const contarB = contarAlumnosConRespuestaTrue(alumnos, pregB.id);
-
-        // Orden descendente (de mayor a menor)
-        return contarB - contarA;
+    return preguntas.slice().sort((a, b) => {
+        return alumnos.filter(alumno => alumno.respuestas[b.id]).length
+            - alumnos.filter(alumno => alumno.respuestas[a.id]).length;
     });
 }
 
-let restoPreguntas;
-
+// Función para iniciar preguntas generales con primera pregunta aleatoria y resto ordenado
 function iniciarPreguntasGenerales(preguntasG, alumnosRestantes) {
-    // Elegir índice aleatorio para la primera pregunta
     const indiceAleatorio = Math.floor(Math.random() * preguntasG.length);
-
-    // Extraer la primera pregunta aleatoria
     const primeraPregunta = preguntasG[indiceAleatorio];
-
-    // El resto de preguntas sin la primera
-    restoPreguntas = preguntasG.filter((_, index) => index !== indiceAleatorio);
-
-    // Ordenar el resto según alumnos restantes con respuesta true
+    const restoPreguntas = preguntasG.filter((_, i) => i !== indiceAleatorio);
     const preguntasOrdenadas = ordenarPreguntasPorNumeroAlumnosTrue(restoPreguntas, alumnosRestantes);
-
-    // Devolver array con la primera pregunta aleatoria + el resto ordenado
     return [primeraPregunta, ...preguntasOrdenadas];
 }
 
-let preguntasGeneralesOrdenadas = iniciarPreguntasGenerales(preguntasG, alumnosRestantes);
+// Después puedes llamar a:
+let preguntasGeneralesRestantes = iniciarPreguntasGenerales(preguntasG, alumnosRestantes);
 
-let preguntasIntermediasOrdenadas = ordenarPreguntasPorNumeroAlumnosTrue(preguntasIm, alumnosRestantes);
-
-
-// Mostramos las preguntas en pantalla
-
-let preguntaActual;
-
-function mostrarSiguientePregunta() {
-    preguntaActual = restoPreguntas.shift();
-    const preguntaTexto = document.getElementById("questionText");
-    preguntaTexto.textContent = preguntaActual.texto;
-}
-
-let etapaActual = "generales";
-
-// Preguntas restantes de cada Etapa
-let preguntasGeneralesRestantes = [...preguntasGeneralesOrdenadas];
 let preguntasIntermediasRestantes = ordenarPreguntasPorNumeroAlumnosTrue(preguntasIm, alumnosRestantes);
 let preguntasEspecificasRestantes = ordenarPreguntasPorNumeroAlumnosTrue(preguntasE, alumnosRestantes);
 
-// Cambio de etapa
+let etapaActual = "generales";
+let restoPreguntas = [...preguntasGeneralesRestantes];
+let preguntaActual = null;
+
+// Mostrar sección preguntas y botones
+function mostrarSeccionPreguntas() {
+    document.getElementById("questionText").style.display = "block";
+    document.querySelector(".answers").style.display = "block";
+    document.getElementById("personaAcertada").style.display = "none";
+    document.getElementById("personaNoAcertada").style.display = "none";
+    document.getElementById("btnYes").style.display = "inline-block";
+    document.getElementById("btnNo").style.display = "inline-block";
+}
+
+// Mostrar siguiente pregunta
+function mostrarSiguientePregunta() {
+
+    irinaPensando = false; // Ya no está pensando, vuelve el modo emocional normal
+
+    if (restoPreguntas.length === 0) {
+        actualizarEtapa();
+        if (restoPreguntas.length === 0) {
+            // No quedan preguntas ni alumnos para continuar
+            console.log("No quedan preguntas ni alumnos para continuar.");
+            return;
+        }
+    }
+    preguntaActual = restoPreguntas.shift();
+    document.getElementById("questionText").textContent = preguntaActual.texto;
+    mostrarSeccionPreguntas();
+}
+
+// Actualizar etapa según número de alumnos restantes
 function actualizarEtapa() {
-    if (alumnosRestantes.length <= 3) {
-        if (etapaActual !== "especificas"){
+    if (alumnosRestantes.length === 1) {
+        etapaActual = "final";
+        restoPreguntas = [];
+        intentoFinalAdivinar();
+    } else if (alumnosRestantes.length <= 3) {
+        if (etapaActual !== "especificas") {
+            etapaActual = "especificas";
+            preguntasEspecificasRestantes = ordenarPreguntasPorNumeroAlumnosTrue(preguntasE, alumnosRestantes);
+            restoPreguntas = [...preguntasEspecificasRestantes];
+
+
+            // Irina está pensando
+            irinaPensando = true;
+            cambiarImagenIrina("irinapensando.png");
+
             primerIntentoAdivinar();
         }
-        etapaActual = "especificas";
-        restoPreguntas = preguntasEspecificasRestantes;
     } else if (alumnosRestantes.length <= 7) {
-        etapaActual = "intermedias";
-        restoPreguntas = preguntasIntermediasRestantes;
+        if (etapaActual !== "intermedias") {
+            etapaActual = "intermedias";
+            preguntasIntermediasRestantes = ordenarPreguntasPorNumeroAlumnosTrue(preguntasIm, alumnosRestantes);
+            restoPreguntas = [...preguntasIntermediasRestantes];
+        }
     } else {
-        etapaActual = "generales";
-        restoPreguntas = preguntasGeneralesRestantes;
+        if (etapaActual !== "generales") {
+            etapaActual = "generales";
+            preguntasGeneralesRestantes = iniciarPreguntasGenerales(preguntasG, alumnosRestantes);
+            restoPreguntas = [...preguntasGeneralesRestantes];
+        }
     }
     console.log("Etapa actual:", etapaActual);
 }
 
-
-// Filtrar alumnos por respuestas
-
-function filtrarAlumnosPorRespuesta(respuestaUsuario){
-    alumnosRestantes = alumnosRestantes.filter(alumno =>
-        alumno.respuestas[preguntaActual.id] === respuestaUsuario
-    );
-    console.log(`Alumnos restantes tras filtrar con respuesta ${respuestaUsuario}:`, alumnosRestantes.map(a => a.nombre));
+// Filtrar alumnos por respuesta del usuario
+function filtrarAlumnosPorRespuesta(respuestaUsuario) {
+    alumnosRestantes = alumnosRestantes.filter(alumno => alumno.respuestas[preguntaActual.id] === respuestaUsuario);
+    console.log("Alumnos restantes tras filtrar:", alumnosRestantes.map(a => a.nombre));
     actualizarEtapa();
 }
 
-// Configuracion de Botones
-const btnYes = document.getElementById("btnYes");
-const btnNo = document.getElementById("btnNo");
+let primerIntentoHecho = false;  // para controlar si ya hicimos el primer intento de adivinar
 
-btnYes.addEventListener("click", () => {
-    procesarRespuesta(true);
-});
+let estadoIrina = 0; // Contador de estado emocional (-2 a +2)
+let irinaPensando = false; // Indica si Irina está pensando
 
-btnNo.addEventListener("click", () => {
-    procesarRespuesta(false);
-});
+function cambiarImagenIrina(nombreArchivo) {
+    const imagenIrina = document.getElementById("imagenIrina");
+    if (imagenIrina) {
+        imagenIrina.src = `img/${nombreArchivo}`;
+        console.log(`Imagen cambiada a: img/${nombreArchivo}`);
+    }
+}
 
-
-let intentoIndex = 0;
-
+// Procesar respuesta del usuario (sí/no)
 function procesarRespuesta(respuestaUsuario) {
-    // Filtramos alumnos según la respuesta
     filtrarAlumnosPorRespuesta(respuestaUsuario);
-
-    // Actualizamos la etapa según alumnos restantes
     actualizarEtapa();
 
-    // Si estamos en la etapa específicas, hacemos intento de adivinar
-    if (etapaActual === "especificas") {
-        if (alumnosRestantes.length > 0) {
-            mostrarIntentoAdivinar();
-        }
-    } else {
-        // Si quedan preguntas, mostramos la siguiente pregunta
-        if (restoPreguntas.length > 0) {
-            mostrarSiguientePregunta();
+    // --- Control de emociones de Irina (solo si no está pensando) ---
+    if (!irinaPensando && alumnosRestantes.length > 1) {
+        if (respuestaUsuario === true) {
+            estadoIrina++;
         } else {
-            // Si no quedan preguntas, intentamos actualizar etapa y mostrar preguntas nuevas si las hay
-            actualizarEtapa();
+            estadoIrina--;
+        }
+
+        // Limitar el rango entre -2 y 2
+        if (estadoIrina > 2) estadoIrina = 2;
+        if (estadoIrina < -2) estadoIrina = -2;
+
+        // Cambiar la imagen según el estado
+        if (estadoIrina >= 2) {
+            cambiarImagenIrina("irinamuyfeliz.png");
+        } else if (estadoIrina >= 0) {
+            cambiarImagenIrina("irinaneutra.png");
+        } else if (estadoIrina === -1) {
+            cambiarImagenIrina("irinaenfadada.png");
+        } else if (estadoIrina <= -2) {
+            cambiarImagenIrina("irinamuyenfadada.png");
+        }
+    }
+    // --- Fin del control de emociones ---
+
+
+    if (etapaActual === "especificas") {
+        if (!primerIntentoHecho && alumnosRestantes.length <= 3 && alumnosRestantes.length > 1) {
+            // Primer intento de adivinar solo UNA vez cuando quedan entre 2 y 3 alumnos
+            primerIntentoHecho = true;
+            mostrarIntentoAdivinar();
+        } else if (alumnosRestantes.length === 1) {
+            // Intento final sin opción a no
+            mostrarIntentoFinal();
+        } else {
+            // Mostrar siguiente pregunta específica si quedan
             if (restoPreguntas.length > 0) {
                 mostrarSiguientePregunta();
             }
         }
+    } else {
+        if (restoPreguntas.length > 0) {
+            mostrarSiguientePregunta();
+        }
     }
 }
 
 
+// Mostrar intento de adivinar alumno (con opciones sí/no)
 function mostrarIntentoAdivinar() {
-    // Obtenemos el primer alumno restante
+
+    irinaPensando = true;
+    cambiarImagenIrina("irinapensando.png");
+
     const personaAdivinada = alumnosRestantes[0];
 
-    // Ocultamos la sección de preguntas
+    // Ocultar pregunta y botones
     document.getElementById("questionText").style.display = "none";
+    document.querySelector(".answers").style.display = "none";
 
-    // Mostramos la sección de intento de adivinar
+    // Mostrar imagen
+    const imagenElemento = document.getElementById("imagenPersonaIntentoAcertada");
+    imagenElemento.src = `img/${personaAdivinada.img}`;
+    imagenElemento.alt = `Foto de ${personaAdivinada.nombre}`;
+
+    // Mostrar el cuadro de intento
+    document.getElementById("personaAcertada").style.display = "block";
+    document.getElementById("personaNoAcertada").style.display = "none";
+
+    // Ocultar botones de sí/no de pregunta mientras se adivina
+    document.getElementById("btnYes").style.display = "none";
+    document.getElementById("btnNo").style.display = "none";
+}
+
+function intentoFinalAdivinar() {
+
+    // Irina deja de pensar y se pone muy feliz
+    irinaPensando = false;
+    estadoIrina = 2; // marcamos que está en el estado más feliz
+    cambiarImagenIrina("irinamuyfeliz.png");
+
+    const personaFinal = alumnosRestantes[0];
+
+    // Ocultar preguntas y botones
+    document.getElementById("questionText").style.display = "none";
+    document.getElementById("btnYes").style.display = "none";
+    document.getElementById("btnNo").style.display = "none";
+
+    // Mostrar imagen del alumno final
+    const imagenElemento = document.getElementById("imagenPersonaIntentoAcertada");
+    if (imagenElemento) {
+        imagenElemento.src = `img/${personaFinal.img}`;
+        imagenElemento.alt = `Foto de ${personaFinal.nombre}`;
+    }
+
+    // Mostrar el bloque del intento
     const acertadaDiv = document.getElementById("personaAcertada");
     const noAcertadaDiv = document.getElementById("personaNoAcertada");
 
-    // Ponemos el nombre en ambos lugares o donde corresponda
-    acertadaDiv.querySelector("#nombrePersonaIntento").textContent = personaAdivinada.nombre;
-    noAcertadaDiv.querySelector("#nombrePersonaIntento").textContent = personaAdivinada.nombre;
-
-    // Mostramos ambas secciones (o solo la que quieres mostrar para decidir)
+    noAcertadaDiv.style.display = "none";
     acertadaDiv.style.display = "block";
-    noAcertadaDiv.style.display = "block";
+
+    // Asegurarse de ocultar el botón "No"
+    const btnNoAcertado = document.getElementById("btnNoAcertado");
+    if (btnNoAcertado) btnNoAcertado.style.display = "none";
 }
 
-// Botones para confirmar si ha acertado o no
+
+
+// Primer intento de adivinar al entrar en etapa específicas
+function primerIntentoAdivinar() {
+    console.log("Primer intento de adivinar");
+    mostrarIntentoAdivinar();
+}
+
+// Eventos para botones
+document.getElementById("btnYes").addEventListener("click", () => procesarRespuesta(true));
+document.getElementById("btnNo").addEventListener("click", () => procesarRespuesta(false));
 
 document.getElementById("btnAcertado").addEventListener("click", () => {
-
+    window.location.href = "personaAcertada";
 });
 
 document.getElementById("btnNoAcertado").addEventListener("click", () => {
-    // Ocultamos la sección de intento de adivinar
+    // Oculta la sección de intento de adivinar
     document.getElementById("personaAcertada").style.display = "none";
     document.getElementById("personaNoAcertada").style.display = "none";
 
     // Volvemos a mostrar la sección de preguntas
-    document.getElementById("seccionPreguntas").style.display = "block";
+    document.getElementById("questionText").style.display = "block";
+    document.getElementById("btnYes").style.display = "inline-block";
+    document.getElementById("btnNo").style.display = "inline-block";
 
-    // Seguimos mostrando preguntas específicas si quedan
-    if (restoPreguntas.length > 0) {
-        mostrarSiguientePregunta();
-    }
+    // Solo preguntas específicas filtradas para alumnos restantes que puedan responder true
+    preguntasEspecificasRestantes = ordenarPreguntasPorNumeroAlumnosTrue(
+        preguntasE.filter(p => alumnosRestantes.some(a => a.respuestas[p.id] === true)),
+        alumnosRestantes
+    );
+    restoPreguntas = preguntasEspecificasRestantes;
+
+    mostrarSiguientePregunta();
 });
 
+document.getElementById("btnSeguirIntentando").addEventListener("click", () => {
+    document.getElementById("personaNoAcertada").style.display = "none";
+    mostrarSeccionPreguntas();
+    mostrarSiguientePregunta();
+});
+
+document.getElementById("btnFinalizarJuego").addEventListener("click", () => {
+    window.location.href = "index";
+});
+
+function mostrarIntentoFinal() {
+    const personaFinal = alumnosRestantes[0];
+
+    // Ocultar preguntas y botones normales
+    document.getElementById("questionText").style.display = "none";
+    document.getElementById("btnYes").style.display = "none";
+    document.getElementById("btnNo").style.display = "none";
+
+    // Mostrar imagen
+    const imagenElemento = document.getElementById("imagenPersonaIntentoAcertada");
+    imagenElemento.src = `img/${personaFinal.img}`;
+    imagenElemento.alt = `Foto de ${personaFinal.nombre}`;
+
+    // Mostrar el cuadro de intento
+    const acertadaDiv = document.getElementById("personaAcertada");
+    const noAcertadaDiv = document.getElementById("personaNoAcertada");
+    noAcertadaDiv.style.display = "none";
+    acertadaDiv.style.display = "block";
+
+    // Ocultar el botón de NO (solo hay una opción)
+    document.getElementById("btnNoAcertado").style.display = "none";
+}
+
+// Inicio del juego mostrando la primera pregunta
 mostrarSiguientePregunta();
-procesarRespuesta();
-mostrarIntentoAdivinar();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Mostrar la siguiente pregunta
-// function mostrarPregunta() {
-//     if (alumnosRestantes.length === 1) {
-//         mostrarResultado(alumnosRestantes[0].nombre);
-//         return;
-//     }
-//
-//     if (preguntaIndex < preguntasG.length) {
-//         const pregunta = preguntasG[preguntaIndex];
-//         //document.getElementById("questionText").textContent = pregunta.texto;
-//         let preguntaG = document.querySelector("#questionText");
-//         preguntaG.textContent=pregunta.texto;
-//         document.getElementById("btnYes").onclick = () => filtrarAlumnos('True');
-//         document.getElementById("btnNo").onclick = () => filtrarAlumnos('False');
-//     } else {
-//         mostrarResultado('No se ha adivinado a un alumno');
-//     }
-// }
-//
-// // Filtrar los alumnos según la respuesta
-//
-// function filtrarAlumnos(respuesta) {
-//     const respuestaBool = respuesta.toLowerCase() === 'sí';
-//     alumnosRestantes = alumnosRestantes.filter(
-//         alumno => alumno.respuestas[preguntasG[preguntaIndex].id] === respuestaBool
-//     );
-//     preguntaIndex++;
-//     mostrarPregunta();
-// }
-//
-// // Mostrar el resultado final
-// function mostrarResultado(alumno) {
-//     document.getElementById("questionContainer").classList.add("hidden");
-//     document.getElementById("resultContainer").classList.remove("hidden");
-//     //document.getElementById("resultText").textContent = `¡El alumno es ${alumno}!`;
-//     let respuesta = document.querySelector("#resultText");
-//     respuesta.textContent=alumno;
-//
-// }
-//
-// // Iniciar el juego
-// mostrarPregunta();
-
-// <button type="button" onClick="window.location.href='personas.html'">Personaje</button>
-
-
-// <script>
-//     // 👇 Aquí defines tus preguntas personalizadas
-//     const questions = [
-//     "¿Tu personaje existió en la vida real?",
-//     "¿Tu personaje es famoso?",
-//     "¿Tu personaje es de España?",
-//     "¿Es un personaje histórico?",
-//     "¿Está relacionado con el mundo del espectáculo?"
-//     ];
-//
-//     let currentQuestion = 0;
-//
-//     function answer(response) {
-//     console.log(`Respuesta a la pregunta ${currentQuestion + 1}: ${response}`);
-//     currentQuestion++;
-//
-//     if (currentQuestion < questions.length) {
-//     document.getElementById("questionNumber").textContent = currentQuestion + 1;
-//     document.getElementById("questionText").textContent = questions[currentQuestion];
-// } else {
-//     document.getElementById("questionText").textContent = "¡Gracias! Has respondido todas las preguntas.";
-//     document.querySelector(".answers").style.display = "none";
-// }
-// }
-// </script>
 
 
 

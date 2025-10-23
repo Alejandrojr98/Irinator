@@ -5,15 +5,16 @@
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
+body{
     font-family: 'Cinzel Decorative', cursive;
     font-size: 38px;
     font-weight: 700;
     background:
-            linear-gradient(rgba(15, 10, 40, 0.85), rgba(25, 15, 60, 0.9)),
+            linear-gradient(rgba(15, 10, 40, 0.85), rgb(22, 16, 50)),
             url('../img/cielo.jpg') center/cover no-repeat fixed;
     color: #f5f5f5;
+    width: 100%;
+    height: 100vh;
 }
 
 /* ===== Header ===== */
@@ -87,7 +88,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(40, 20, 70, 0.85);
+    background: rgb(22, 16, 50);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     padding: 45px 35px;
@@ -322,6 +323,359 @@ preguntasG, preguntasIm, preguntasE{
     color:#f1d96b;
     transform:scale(1.07);
     box-shadow:0 0 25px rgba(241,217,107,.8);
+}
+
+
+/* Mostrar cuando activo */
+#personaAcertada.active,
+#personaNoAcertada.active {
+    display: block;
+}
+
+ul{
+    list-style-type: none;
+}
+
+/* ===== Botón "Jugar" (inicio) ===== */
+.btn-play {
+    display: block;
+    width: 80%;
+    max-width: 250px;
+    padding: 14px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    border: 2px solid #f1d96b;
+    background: rgba(241, 217, 107, 0.15);
+    color: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(241, 217, 107, 0.3);
+    margin: 20px auto 0 auto; /* centrado y con separación de la imagen */
+    font-family: 'Metamorphous', serif;
+}
+
+.btn-play:hover {
+    background: rgba(241, 217, 107, 0.35);
+    color: #f1d96b;
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(241, 217, 107, 0.8);
+}
+
+/* ===== Imagen principal (pantalla de inicio) ===== */
+.animalitos-img,.rrss-img {
+    display: block;
+    /*max-width: 500px;      !* tamaño máximo en pantallas grandes *!*/
+    /*width: 90%;            !* responsivo en móviles *!*/
+    width: 700px;
+    height: 600px;
+    margin: 20px auto;     /* centrado */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(241, 217, 107, 0.4);
+    object-fit: contain;
+    animation: float 6s ease-in-out infinite; /* misma animación flotante */
+}
+
+/* ===== Formulario de sugerencias ===== */
+.sugerencia-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.sugerencia-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sugerencia-form label {
+    font-size: 18px;
+    color: #f1d96b;
+    text-shadow: 0 0 6px rgba(241, 217, 107, 0.6);
+    font-family: 'Metamorphous', serif;
+}
+
+.sugerencia-form input[type="text"],
+.sugerencia-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Metamorphous', serif;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f5f5f5;
+    border: 2px solid rgba(241, 217, 107, 0.4);
+    border-radius: 8px;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.sugerencia-form input[type="text"]:focus,
+.sugerencia-form textarea:focus {
+    outline: none;
+    border-color: #f1d96b;
+    box-shadow: 0 0 10px rgba(241, 217, 107, 0.5);
+}
+
+.sugerencia-form button {
+    /* Usa el estilo de botones ya existente */
+    display: block;
+    width: 80%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.crud-container {
+    width: 70%;
+    margin: 40px auto;
+    background: rgb(22, 16, 50);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(241, 217, 107, 0.3);
+}
+
+h2.section-title {
+    color: #f1d96b;
+    font-family: 'Metamorphous', serif;
+    font-size: 26px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 6px rgba(241, 217, 107, 0.6);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead {
+    background: rgba(241, 217, 107, 0.15);
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(241, 217, 107, 0.2);
+}
+
+th {
+    color: #f1d96b;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #ffffff;
+}
+
+tr:hover {
+    background: rgba(241, 217, 107, 0.08);
+}
+
+.crud-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.crud-actions button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border: 1px solid #f1d96b;
+    background: rgba(241, 217, 107, 0.15);
+    color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.crud-actions button:hover {
+    background: rgba(241, 217, 107, 0.35);
+    color: #f1d96b;
+}
+
+.volver-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.volver-container button {
+    display:block;        /* quita el flex que se aplicaba por error */
+    width:80%;
+    max-width:250px;
+    padding:14px;
+    text-align:center;
+    font-size:17px;
+    font-weight:600;
+    border:2px solid #f1d96b;
+    background:rgba(241,217,107,.15);
+    color:#f5f5f5;
+    border-radius:10px;
+    cursor:pointer;
+    transition:all .3s ease;
+    letter-spacing:.5px;
+    box-shadow:0 0 10px rgba(241,217,107,.3);
+    margin:0 auto;        /* asegura centrado del bloque */
+    text-decoration: none;
+}
+
+.volver-container button:hover {
+    background: rgba(241, 217, 107, 0.35);
+    color: #f1d96b;
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(241, 217, 107, 0.8);
+}
+
+tr.aprobado .estado {
+    color: #77ea94;
+    font-weight: bold;
+}
+
+td.aprobado {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+/* Estilo para fila aprobada */
+tr.aprobado {
+    background-color: #155724; /* verde claro */
+    color: #a9fdbe;            /* verde oscuro para el texto */
+    font-weight: bold;
+}
+
+tr {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.palpita {
+    animation: latido 1s infinite;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* ===== Carrusel (grande, cuadrado) ===== */
+.carousel{
+    position: relative;
+    width: min(860px, 92vw);   /* más grande */
+    aspect-ratio: 1 / 1;       /* cuadrado */
+    margin: 30px auto 16px;
+    background: rgba(22,16,50,.85);
+    border: 2px solid rgba(241,217,107,.3);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.55);
+    overflow: hidden;
+}
+
+.carousel__viewport{
+    display: flex;
+    width: 100%;               /* asegura ancho completo */
+    height: 100%;              /* ocupa todo el cuadrado */
+    transition: transform .5s ease;
+    will-change: transform;
+    touch-action: pan-y;
+}
+
+.carousel__slide{
+    min-width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background:
+            radial-gradient(600px 200px at 10% -20%, rgba(241,217,107,.08), transparent 40%),
+            rgba(10, 8, 25, .35);
+}
+
+.carousel__slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(241,217,107,.35);
+}
+
+/* Flechas */
+.carousel__btn{
+    position: absolute; z-index: 2;
+    top: 50%; transform: translateY(-50%);
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(241,217,107,.55);
+    background: rgba(241,217,107,.12);
+    color: #f1d96b; font-size: 26px; font-weight: 700;
+    display: grid; place-items: center;
+    cursor: pointer; user-select: none;
+    transition: all .2s ease;
+    box-shadow: 0 0 10px rgba(241,217,107,.25);
+}
+.carousel__btn:hover{ background: rgba(241,217,107,.3); }
+.carousel__btn--prev{ left: 12px; }
+.carousel__btn--next{ right: 12px; }
+
+/* Puntos */
+.carousel__dots{
+    position: absolute; z-index: 2;
+    left: 50%; transform: translateX(-50%);
+    bottom: 12px; display: flex; gap: 8px;
+}
+.carousel__dots button{
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 1px solid rgba(241,217,107,.6);
+    background: rgba(241,217,107,.15);
+    cursor: pointer; transition: transform .2s ease, background .2s ease;
+}
+.carousel__dots button[aria-current="true"]{
+    background: #f1d96b; transform: scale(1.2);
+}
+
+/* Autoplay */
+.carousel__auto{
+    position: absolute; z-index: 2;
+    top: 10px; right: 12px;
+    color: #f1d96b; font-family: 'Metamorphous', serif; font-size: 14px;
+}
+.carousel__auto input{ accent-color: #f1d96b; }
+
+/* Botón “Jugar” centrado debajo */
+.play-button-container{
+    display: flex; justify-content: center; margin-top: 10px;
+}
+.play-btn{
+    background: transparent;
+    border: 2px solid #f1d96b;
+    color: #f1d96b;
+    font-family: 'Metamorphous', serif;
+    font-size: 18px;
+    padding: 10px 34px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-shadow: 0 0 15px rgba(241,217,107,.25);
+}
+.play-btn:hover{
+    background: rgba(241,217,107,.15);
+    box-shadow: 0 0 25px rgba(241,217,107,.45);
+}
+
+/* Móvil */
+@media (max-width: 600px){
+    .carousel{ width: 95vw; }
+    .carousel__btn{ width: 40px; height: 40px; font-size: 22px; }
+    .play-btn{ font-size: 16px; padding: 8px 24px; }
 }
 
 

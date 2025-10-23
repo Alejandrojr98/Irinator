@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (texto.includes('personas')) {
                 imgPrincipal.src = 'img/irinarriba.png'; // al pasar por Personas
             } else if (texto.includes('animales')) {
-                imgPrincipal.src = 'img/irinabajo.png'; // al pasar por Animales o Animales Prueba
+                imgPrincipal.src = 'img/irinarriba.png'; // al pasar por Animales o Animales Prueba
+            } else if (texto.includes('maravillas')) {
+                imgPrincipal.src = 'img/irinabajo.png';
+            } else {
+                imgPrincipal.src = 'img/irinabajo.png';
             }
         });
 
